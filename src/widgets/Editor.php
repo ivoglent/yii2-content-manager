@@ -12,6 +12,7 @@ namespace ivoglent\content\manager\widgets;
 
 
 
+use ivoglent\media\manager\widgets\UploadButton;
 use yii\web\JqueryAsset;
 use yii\web\View;
 
@@ -47,8 +48,14 @@ class Editor extends \ivoglent\content\manager\Widget
         ]);
     }
 
+    /**
+     * @return string
+     */
     public function run()
     {
+        UploadButton::widget([
+            'target' => 'a'
+        ]);
         return $this->render('editor', []);
     }
 }
