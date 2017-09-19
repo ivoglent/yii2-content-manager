@@ -5,15 +5,22 @@
  * @author ivoglent
  * @time  9/19/17.
  */
-
+$editorId = substr(md5(time() . uniqid()), 0, 6);
 ?>
-
-<textarea id="a"></textarea>
+<?php if (!empty($model)):?>
+    <?= \yii\helpers\Html::activeTextarea($model, $attribute, [
+        'id' => $editorId
+    ])?>
+<?php else :?>
+    <?= \yii\helpers\Html::textarea($target, $value, [
+        'id' => $editorId
+    ])?>
+<?php endif;?>
 <script>
     ;(function($){
         $(document).ready(function(){
             tinymce.init({
-                selector: '#a',
+                selector: '#<?=$editorId?>',
                 height: 500,
                 menubar: false,
                 plugins: [
@@ -27,7 +34,11 @@
                     '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
                     '//www.tinymce.com/css/codepen.min.css'],
                 file_picker_callback: function(callback, value, meta) {
-                    yii.media.dialog.show();
+                    yii.media.dialog.show({
+                        target : false
+                    }, function(response){
+                        callback(response);
+                    });
                 },
             });
         });

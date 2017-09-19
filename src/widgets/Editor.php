@@ -54,8 +54,14 @@ class Editor extends \ivoglent\content\manager\Widget
     public function run()
     {
         UploadButton::widget([
-            'target' => 'a'
+            'target' => false,
+            'createElement' => false
         ]);
-        return $this->render('editor', []);
+        return $this->render('editor', [
+            'model'         => $this->model,
+            'attribute'     => $this->attribute,
+            'target'        => $this->target,
+            'value'         => $this->value
+        ]);
     }
 }
