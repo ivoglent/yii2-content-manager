@@ -22,7 +22,7 @@
   "require": {
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-bootstrap": "~2.0.0",
-    "ivoglent/yii2-media-manager": "*"
+    "ivoglent/yii2-media-manager": "~1.2"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"
