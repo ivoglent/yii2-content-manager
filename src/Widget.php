@@ -60,6 +60,6 @@ class Widget extends \yii\base\Widget
         $dirs = \Yii::$app->assetManager->publish($assetDir, [
             'forceCopy' => YII_DEBUG
         ]);
-        return BaseUrl::base(true) . $dirs[1] .'/';
+        return  $dirs[1] .'/';
     }
 }
